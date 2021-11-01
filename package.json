@@ -1,0 +1,14 @@
+{
+    "name": "@victor_monakhov/tanks",
+    "version": "3.0.9",
+    "description": "Game Tanks for browser",
+    "license": "MIT",
+    "repository": "tanks_game/game",
+    "main": "./game/index.js",
+    "keywords": [
+        "game",
+        "npm",
+        "tanks",
+        "browser game"
+    ]
+}
