@@ -4,7 +4,7 @@ import Bullet from "./bullet.js";
 export default class Unit extends MapElement{
     userId = "None";
     name = 'NoName';
-    side = 'Red';
+    side = 'red';
     homeId = 1111;
     ability = 0;
     turn = 0;
@@ -78,7 +78,7 @@ export default class Unit extends MapElement{
         this.experienceToLevel = this.uc.level * 20;
     }
     roadEffect(position){
-        if(this.side === "Red") {
+        if(this.side === "red") {
             if (position === this.map.backId.hpRegenRed && this.uc.health < this.etalonUc.health)
                 this.uc.health += 0.1;
             if (position === this.map.backId.hpRegenBlue && this.uc.health >= 0)

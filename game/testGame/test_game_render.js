@@ -17,7 +17,7 @@ export default class Render{
         this.etalonUnits = game.etalonUnits;
         this.cloneUnits = game.cloneUnits;
         this.userId = game.userId;
-        this.userIndex = game.uI;
+        this.uI = game.uI;
         this.crashDegrees = 0;
         this.userPreparation();
         this.othersPreparation();
@@ -231,8 +231,8 @@ export default class Render{
             const rectWidth = 6;
             //dfu = distance from unit
             const dfu = 20;
-            this.context.fillStyle = (clone.side === "Red") ? "darkRed" :
-                (clone.side === "Green")? "darkGreen" : "blue";
+            this.context.fillStyle = (clone.side === "red") ? "darkRed" :
+                (clone.side === "green")? "darkGreen" : "blue";
             let tempHealth = this.healthArmorBalancer(clone.uc.health, clone.etalonUc.health, this.map.unitWidth);
             switch (clone.turn) {
                 case Turn.right: {
@@ -277,8 +277,8 @@ export default class Render{
             //dfu = distance from unit
             const dfu = 20;
             let tempHealth = this.healthArmorBalancer(clone.uc.health, clone.etalonUc.health, this.map.baseWidth);
-            this.context.fillStyle = (clone.side === "Red") ? "darkRed" : "blue";
-            if(clone.side === "Red") {
+            this.context.fillStyle = (clone.side === "red") ? "darkRed" : "blue";
+            if(clone.side === "red") {
                 this.context.fillRect(clone.pos.renderCoords.X - dfu,
                     clone.pos.renderCoords.Y + this.map.baseWidth - tempHealth, rectWidth, tempHealth);
                 this.context.fillStyle = "rgb(60, 50, 50)";

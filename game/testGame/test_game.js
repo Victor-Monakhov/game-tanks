@@ -54,8 +54,8 @@ export default class TestGame {
             tower.bullet.map = this.map;
             tower.id = this.map.backId.towers[index];
             tower.pos.coords = this.map.towersCoords[index];
-            tower.turn = (tower.side === "Blue") ? Turn.left : Turn.right;
-            tower.gun.degree = (tower.side === "Blue") ? 180 : 0;
+            tower.turn = (tower.side === "blue") ? Turn.left : Turn.right;
+            tower.gun.degree = (tower.side === "blue") ? 180 : 0;
             tower.targets = this.cloneUnits.filter(unit=> tower.side !== unit.side);
             tower.allies = this.cloneUnits.filter(unit => tower.side === unit.side);
             tower.width = tower.height = this.map.unitWidth;
@@ -89,7 +89,7 @@ export default class TestGame {
             this.map.mobs.filter(mob => cloneUnit.side !== mob.side).forEach(mob =>{
                 cloneUnit.targets.push(mob);
             });
-            cloneUnit.targets.push((cloneUnit.side === "Red") ?
+            cloneUnit.targets.push((cloneUnit.side === "red") ?
                 this.map.blueBase : this.map.redBase);
             cloneUnit.allies = this.cloneUnits.filter(unit => cloneUnit.side === unit.side);
         });
@@ -157,8 +157,8 @@ export default class TestGame {
         }
     }
     gameOver(){
-        if((this.cloneUnits[this.uI].side === "Red" && this.map.blueBase.uc.health <= 0) ||
-            (this.cloneUnits[this.uI].side === "Blue" && this.map.redBase.uc.health <= 0)){
+        if((this.cloneUnits[this.uI].side === "red" && this.map.blueBase.uc.health <= 0) ||
+            (this.cloneUnits[this.uI].side === "blue" && this.map.redBase.uc.health <= 0)){
             ++this.etalonUnits[this.uI].wins;
             ++this.etalonUnits[this.uI].battles;
             this.etalonUnits[this.uI].kills = this.cloneUnits[this.uI].kills;
@@ -166,8 +166,8 @@ export default class TestGame {
             this.etalonUnits[this.uI].money += this.bonus;
             this.win = true;
         }
-        else if((this.cloneUnits[this.uI].side === "Red" && this.map.redBase.uc.health <= 0) ||
-            (this.cloneUnits[this.uI].side === "Blue" && this.map.blueBase.uc.health <= 0)){
+        else if((this.cloneUnits[this.uI].side === "red" && this.map.redBase.uc.health <= 0) ||
+            (this.cloneUnits[this.uI].side === "blue" && this.map.blueBase.uc.health <= 0)){
             ++this.etalonUnits[this.uI].defeats;
             ++this.etalonUnits[this.uI].battles;
             this.etalonUnits[this.uI].kills = this.cloneUnits[this.uI].kills;

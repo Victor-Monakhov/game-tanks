@@ -31,10 +31,11 @@ export default class TankBot extends Unit{
                 boom_coords: new Coords(0,0),
             }
         ],
-        ability = 0){
+        ability = 0
+        ) {
         super(new UnitCharacteristics(model, health, armor, speed, shotPower, shotDistance, respawnTime),
             gun, ammunition, ability);
-        this.side = side;
+        this.side = side.toLowerCase();
     }
 
     checkTarget1(target){
@@ -141,7 +142,7 @@ export default class TankBot extends Unit{
                     this.turn -= 1;
                 }
             }
-            if(this.side === "Red" && this.turnFlag)
+            if(this.side === "red" && this.turnFlag)
                 this.directionPriority = this.pos.coords.Y < Math.round(this.map.frontHeight / 2);
             else if(this.turnFlag)
                 this.directionPriority = this.pos.coords.Y > Math.round(this.map.frontHeight / 2);

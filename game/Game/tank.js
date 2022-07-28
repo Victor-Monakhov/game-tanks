@@ -11,14 +11,14 @@ export default class Tank extends Unit{
     defeats = 0;
     counter = 0;
     control = null;
-    constructor(control, userId, side) {
+    constructor(control, userId, userData) {
         super();
         super.userId = userId;
-        super.side = side;
+        super.side = userData.team.toLowerCase();
         this.control = control;
-        this.uc.model = 'T_4';
-        this.etalonUc.model = 'T_4'
-        this.gun.model = 'gun_4';
+        this.uc.model = userData.tankBody;
+        this.etalonUc.model = userData.tankBody
+        this.gun.model = userData.tankHead;
     }
     checkCollision(moveMapFlag){
         let collision = false;
